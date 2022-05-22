@@ -1,14 +1,17 @@
-from flask import Flask, redirect, url_for, request, render_template
-# Define a flask app
-from flask import jsonify
+from flask import Flask, request, render_template
+
 app = Flask(__name__)
 
-@app.route('/', methods=['GET'])
-def index():
-    # Main page
-    return render_template('index.html')
+@app.route('/')
+def my_form():
+    return render_template('home.html')
+
+@app.route('/', methods=['POST'])
+def my_form_post():
+    text = request.form['aadhar_num']
+    return text
+
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=9000, debug=True)
-
+    app.run(debug=True)

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOTE</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>WELCOME</h1>
+        <form method="POST">
+            <div class="form-control">
+                <input type="text" name="aadhar_num" required pattern="[0-9]{12}" maxlength=12 id="userCode" ng-model="formdata.userCode" title="12 Digit code">&nbsp;
+                <label>Aadhar number </label>
+            </div>
+            <button class="btn">VOTE</button>
+        </form>
+    </div>
+
+    <script src="/static/js/sjs.js"></script>
+</body>
+
+</html>
