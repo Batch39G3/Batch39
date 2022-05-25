@@ -12,9 +12,9 @@
 <body>
     <div class="container">
         <h1>Verification</h1>
-        <form action="{{ url_for('otp') }}" method="POST">
+        <form action="{{ url_for("verification")}}"         method="POST">
             <div class="form-control">
-                <input type="text" name="Otp" required pattern="[0-9]{4}" maxlength=4 id="userCode" ng-model="formdata.userCode" title="4 Digit code">&nbsp;
+                <input type="text" name="otp" required pattern="[0-9]{4}" maxlength=4 id="userCode" ng-model="formdata.userCode" title="4 Digit code">&nbsp;
                 <label>Enter otp </label>
             </div>
             <button class="btn">VERIFY</button>

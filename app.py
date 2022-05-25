@@ -14,7 +14,7 @@ def my_form_post():
 
 @app.route('/otp',methods = ['POST'])
 def verification():
-    otp_text = request.form['Otp']
+    otp_text = request.form['otp']
     return otp_text
 
 
