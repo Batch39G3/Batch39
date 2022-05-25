@@ -1,87 +1,101 @@
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-*{
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+body {
+    background-color: rgb(163, 86, 125);
+    background-image: url"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3g2MVP5tNnK-3xqz2rEq4547v1bEwtqTDww&usqp=CAU";
+    color: rgb(235, 235, 242);
+    font-family: 'Muli', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
 }
-body{
-  background-color: rgb(252, 250, 251);
-  color: rgb(235, 235, 242);
-  font-family: 'Muli', sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  overflow: hidden;
+
+.container {
+    background-color: rgb(54, 109, 205);
+    padding: 20px 40px;
+    border-radius: 5px;
 }
-.container{
-  background-color: rgb(54, 109, 205);
-  padding: 20px 40px;
-  border-radius: 5px;
+
+.container h1 {
+    text-align: center;
+    margin-bottom: 30px;
 }
-.container h1{
-  text-align: center;
-  margin-bottom: 30px;
-}
+
 .container a {
-  text-decoration: none;
-  color: rgb(250, 246, 248);
+    text-decoration: none;
+    color: rgb(250, 246, 248);
 }
-.btn{
-  display: inline-block;
-  width: 100%;
-  cursor: pointer;
-  background-color: rgb(234, 224, 234);
-  padding: 15px;
-  font-family: inherit;
-  font-size: 16px;
-  border: 0;
-  border-radius: 5px;
+
+.btn {
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;
+    background-color: rgb(234, 224, 234);
+    padding: 15px;
+    font-family: inherit;
+    font-size: 16px;
+    border: 0;
+    border-radius: 5px;
 }
-.btn:focus{
-  outline: 0;
+
+.btn:focus {
+    outline: 0;
 }
-.btn:active{
-  transform: scale(0.98);
+
+.btn:active {
+    transform: scale(0.98);
 }
-.text{
-  margin-top: 30px;
+
+.text {
+    margin-top: 30px;
 }
-.form-control{
-  position: relative;
-  margin: 20px 0 40px;
-  width: 300px;
+
+.form-control {
+    position: relative;
+    margin: 20px 0 40px;
+    width: 300px;
 }
-.form-control input{
-  background-color: transparent;
-  border: 0;
-  border-bottom: 2px solid rgb(233, 227, 227);
-  display: block;
-  width: 100%;
-  padding: 15px 0 10px 0;
-  font-size: 18px;
-  color: rgb(237, 227, 227);
+
+.form-control input {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 2px solid rgb(233, 227, 227);
+    display: block;
+    width: 100%;
+    padding: 15px 0 10px 0;
+    font-size: 18px;
+    color: rgb(237, 227, 227);
 }
+
 .form-control input:focus,
-.form-control input:valid{
-  outline: 0;
-  border-bottom-color: rgb(30, 29, 29);
+.form-control input:valid {
+    outline: 0;
+    border-bottom-color: rgb(30, 29, 29);
 }
-.form-control label{
-  position: absolute;
-  top: 15px;
-  left: 0;
+
+.form-control label {
+    position: absolute;
+    top: 15px;
+    left: 0;
 }
-.form-control label span{
-  display: inline-block;
-  font-size: 18px;
-  min-width: 5px;
-  transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+.form-control label span {
+    display: inline-block;
+    font-size: 18px;
+    min-width: 5px;
+    transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
-.form-control input:focus + label span,
-.form-control input:valid + label span{
-  color: rgb(219, 205, 219);
-  transform: translateY(-30px);
+
+.form-control input:focus+label span,
+.form-control input:valid+label span {
+    color: rgb(219, 205, 219);
+    transform: translateY(-30px);
 }

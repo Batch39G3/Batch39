@@ -5,11 +5,20 @@ app = Flask(__name__)
 @app.route('/')
 def my_form():
     return render_template('home.html')
+    #return render_template('party.html')
 
 @app.route('/', methods=['POST'])
 def my_form_post():
     text = request.form['aadhar_num']
-    return text
+    return render_template('otp.html')
+
+@app.route('/otp',methods = ['POST'])
+def verification():
+    otp_text = request.form['Otp']
+    return otp_text
+
+
+
 
 
 
