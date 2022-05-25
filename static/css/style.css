@@ -6,8 +6,7 @@
 }
 
 body {
-    background-color: rgb(163, 86, 125);
-    background-image: url"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3g2MVP5tNnK-3xqz2rEq4547v1bEwtqTDww&usqp=CAU";
+    background-color: rgb(247, 234, 240);
     color: rgb(235, 235, 242);
     font-family: 'Muli', sans-serif;
     display: flex;
