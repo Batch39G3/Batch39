@@ -33,9 +33,9 @@ def vote():
 
 @app.route('/admin',methods = ['POST','GET'])
 def admine():
-    candi_name = request.form['party[]']
+    candi_name= request.form.getlist['party[0]']  
     
-    return candi_name[1]
+    return candi_name
 
 
 

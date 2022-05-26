@@ -8,11 +8,14 @@
             $rowno = $("#employee_table tr").length;
             $rowno = $rowno + 1;
             $("#employee_table tr:last").after("<tr id='row" + $rowno + "'><td><input type='text' name='name[]' placeholder='Enter Name'></td><td><input type='text' name='party[]' placeholder='Enter Party'></td><td><input type='text' name='region[]'' placeholder='Enter region'></td><td><input type='button' value='DELETE' onclick=delete_row('row" + $rowno + "')></td></tr>");
+            
+        
         }
 
         function delete_row(rowno) {
             $('#' + rowno).remove();
         }
+        document.write(name)
     </script>
 </head>
 
@@ -20,7 +23,7 @@
     <div id="wrapper">
 
         <div id="form_div">
-            <form action="{{ url_for(" admine ")}}" method="POST">
+            <form action="{{ url_for("admine")}}" method="POST">
                 <table id="employee_table" align=center>
                     <tr id="row1">
                         <td><input type="text" name="name[]" placeholder="Enter Name"></td>
