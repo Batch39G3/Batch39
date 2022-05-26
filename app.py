@@ -1,3 +1,4 @@
+import re
 from flask import Flask, request, render_template
 
 
@@ -12,8 +13,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def my_form():
-    return render_template('home.html')
-    #return render_template('party.html')
+    #return render_template('home.html')
+    return render_template('admin.html')
 
 @app.route('/', methods=['POST'])
 def my_form_post():
@@ -30,9 +31,12 @@ def vote():
     candi = request.form['likebtn']
     return candi
 
-
-
+@app.route('/admin',methods = ['POST','GET'])
+def admine():
+    candi_name = request.form['party[]']
     
+    return candi_name[1]
+
 
 
 
