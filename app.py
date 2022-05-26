@@ -1,5 +1,13 @@
 from flask import Flask, request, render_template
 
+
+
+
+
+parties=["zania","vijetha","KP","bhu"]
+
+
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -12,11 +20,19 @@ def my_form_post():
     text = request.form['aadhar_num']
     return render_template('otp.html')
 
-@app.route('/otp',methods = ['POST'])
+@app.route('/otp',methods = ['POST','GET'])
 def verification():
     otp_text = request.form['otp']
-    return otp_text
+    return render_template('party.html',n_party=parties,n=len(parties))
 
+@app.route('/vote',methods = ['POST','GET'])
+def vote():
+    candi = request.form['likebtn']
+    return candi
+
+
+
+    
 
 
 

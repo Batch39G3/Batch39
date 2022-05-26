@@ -1,14 +1,31 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
 
 <head>
-    <link rel="stylesheet" href="/static/css/party.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOTE</title>
+    <link rel="stylesheet" href="/static/css/style.css">
 
 </head>
 
 <body>
+    <div class="container">
+        <h1>VOTE YOUR CHOICE</h1>
+        <form action="{{ url_for("vote")}}" method="POST">
+            <div class="form-control ">
+            </div>
+            {%for i in n_party%} <button name="likebtn"  value="{{i}}" class="btn ">{{i}}</button>
+            <br>
+            <br> {% endfor %} </form>
 
+    </div>
+
+    <script src="/static/js/sjs.js "></script>
 </body>
-<script src="/static/js/party.js"></script>
 
 </html>
+
+
+
