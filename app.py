@@ -5,16 +5,15 @@ from flask import Flask, request, render_template
 
 
 
-parties=["zania","vijetha","KP","bhu"]
-
+parties=["A","B","C","D"]
 
 
 app = Flask(__name__)
 
 @app.route('/')
 def my_form():
-    #return render_template('home.html')
-    return render_template('admin.html')
+    return render_template('home.html')
+    #return render_template('admin.html')
 
 @app.route('/', methods=['POST'])
 def my_form_post():
@@ -33,8 +32,8 @@ def vote():
 
 @app.route('/admin',methods = ['POST','GET'])
 def admine():
-    candi_name= request.form.getlist['party[0]']  
-    
+    candi_name=[]
+    candi_name= request.form['name[]']  
     return candi_name
 
 

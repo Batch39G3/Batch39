@@ -1,0 +1,15 @@
+
+
+def aadhar_details(aadhar_no):
+    aadhar={"123456789012":["7619670012","e-city"],"485820350969":["9916407340","b-gudi"],"784534984054":["8660072831","dc-halli"],"484856567878":["6362287285","dj-halli"]}
+    if aadhar_no not in aadhar:
+        return "not found","not found"
+    else:
+        region=aadhar[aadhar_no][1]
+        phno=aadhar[aadhar_no][0]
+        return phno,region
+
+
+#a,b=aadhar_details("12345678901")
+#print(a)
+#print(b)

@@ -17,6 +17,7 @@
                 <input type="text" name="otp" required pattern="[0-9]{4}" maxlength=4 id="userCode" ng-model="formdata.userCode" title="4 Digit code">&nbsp;
                 <label>Enter otp </label>
             </div>
+            <strong>{{error}}</strong> 
             <button class="btn">VERIFY</button>
         </form>
     </div>
