@@ -18,5 +18,11 @@ def otp_generate(ph_no):
     j=json.loads(b)
     return j["Status"],otp
 
+    
+''''
+a,b=otp_generate("7619670012")
+print(a)
+print(b)
+'''
 
 

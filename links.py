@@ -7,7 +7,7 @@ ganache_url = "http://127.0.0.1:7545"
 web3 = Web3(Web3.HTTPProvider(ganache_url))
 abise = abis()
 abi=json.loads(abise)
-address=web3.toChecksumAddress("0x0476AfeAb5326Cdc159bF6Fd51f9d9ce4c6dDc7c")
+address=web3.toChecksumAddress("0xB120c68f2B96C62fDb47034d681200347e2efc0C")
 contract=web3.eth.contract(address=address,abi=abi)
 
 
@@ -67,7 +67,7 @@ def add_candidate(name,region,party):
 
 
 
-
+     
 
 #####################################################################################################################################################
 
@@ -79,18 +79,20 @@ def vote(name,region,party,i):
   h=web3.eth.waitForTransactionReceipt(h)
   return h
   
-def get_no_of_candidates():
+def get_candidates():
+    l=[]
     s=contract.functions.get_no_candidates().call()
     print(s)
     for i in range (int(s)):
-      print(contract.functions.candidates(i).call())
-
-
-
-def get_candidate_details(index):
-    web3.eth.defaultAccount = web3.eth.accounts[0]
-    l=[]
-    for i in range(index):
-      s=contract.functions.candidates(index).call()
-      l.append(s)
+      a=contract.functions.candidates(i).call()
+      l.append(a)
     return l
+
+
+def get_region_candidates(region):
+    l=get_candidates()
+    r=[]
+    for i in range(len(l)):
+       if l[i][2]==region:
+         r.append(l[i][3])
+    return r 
