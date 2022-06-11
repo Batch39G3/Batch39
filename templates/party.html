@@ -13,7 +13,7 @@
 <body>
     <div class="container">
         <h1>VOTE YOUR CHOICE</h1>
-        <form action="{{ url_for("vote")}}" method="POST">
+        <form action="{{ url_for("votss")}}" method="POST">
             <div class="form-control ">
             </div>
             {%for i in n_party%} <button name="likebtn"  value="{{i}}" class="btn ">{{i}}</button>

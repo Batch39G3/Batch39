@@ -7,7 +7,7 @@ ganache_url = "http://127.0.0.1:7545"
 web3 = Web3(Web3.HTTPProvider(ganache_url))
 abise = abis()
 abi=json.loads(abise)
-address=web3.toChecksumAddress("0xB120c68f2B96C62fDb47034d681200347e2efc0C")
+address=web3.toChecksumAddress("0x25352934f210d1e3b0eF841ce8e20aa2A938562D")
 contract=web3.eth.contract(address=address,abi=abi)
 
 
@@ -26,7 +26,7 @@ def verify_user(aadhar_no):
     h=contract.functions.get_adhaar_status(str(aadhar_no)).call()
     #print(h)
     if h=="Not Voted":
-      sett=add_aadhar(aadhar_no)
+      #sett=add_aadhar(aadhar_no)
       #print(sett)
       return "not voted"
     else:
@@ -96,3 +96,41 @@ def get_region_candidates(region):
        if l[i][2]==region:
          r.append(l[i][3])
     return r 
+
+def get_candidate_names(region):
+    namess={}
+    l=get_candidates()
+    for i in range(len(l)):
+       if l[i][2]==region:
+         namess[l[i][3]]=l[i][0]
+    return namess
+  
+
+#a=get_candidate_names("bang")
+#print(type(a))
+def addressstore(c):
+  with open("address.txt","a+") as f:
+      f.write(str(c)+"\n")
+      
+def checkaddress(a):
+    file = open("address.txt")
+    if(a in file.read()):
+        return True
+    else:
+        return False
+
+def generatee():
+    for i in range(1,len(web3.eth.accounts)):
+        #print(web3.eth.accounts[i])
+      if i<=(len(web3.eth.accounts)-2):
+        a=web3.eth.accounts[i]
+        if checkaddress(a)==False and i<=(len(web3.eth.accounts)-2):
+            addressstore(a)
+            #print(a)
+            return [a,i]
+      else:
+            return(" no more address ")
+
+
+#a=generatee()
+#print(a)
