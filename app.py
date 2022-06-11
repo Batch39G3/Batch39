@@ -42,7 +42,7 @@ def verification():
           status,otp = otp_generate(ph_no)
        #print(ph_no,otp)
        if ph_no == "not found":
-               return "Aadhar number not found"
+               return render_template("home.html",error="Aadhar number not found")
                #return redirect(url_for("my_form_post",erro="Aadhar number not found"))          
        return render_template("otp.html")
 
@@ -51,7 +51,7 @@ def verification():
         if ph_no != "not found":
             if str(otp_text) == str(otp):
                 if len(region_lst)==0:
-                  return "No Candidates"
+                  return render_template("home.html",error="No Candidates in this region")
                 else:
                     a=verify_user(a_no)
                     if a=="not voted":
@@ -60,9 +60,11 @@ def verification():
                         #return render_template("party.html",n_party=region_lst)
                         #return str(region_lst)
                     else:
-                        return "voted"
+                        return render_template("home.html",error="Already Voted")
+                        #return "voted"
             else:
-               return "Wrong OTP"
+               return render_template("otp.html",error="Wrong OTP")
+               #return "Wrong OTP"
         
 
 
@@ -92,7 +94,9 @@ def votss():
             vott=vote(c_name,region_lst,candi,i)
             if str(vott["status"])==str(1):
                sett=add_aadhar(a_no)
-               return "Thanks for voting"
+               return render_template("home.html",error="Thanks for voting")
+                        
+               
 
 @app.route('/admin',methods = ['POST','GET'])
 def admine():
