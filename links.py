@@ -7,7 +7,7 @@ ganache_url = "http://127.0.0.1:7545"
 web3 = Web3(Web3.HTTPProvider(ganache_url))
 abise = abis()
 abi=json.loads(abise)
-address=web3.toChecksumAddress("0x25352934f210d1e3b0eF841ce8e20aa2A938562D")
+address=web3.toChecksumAddress("0xae1576A8a800bd699D69080F9ba2C1126f073364")
 contract=web3.eth.contract(address=address,abi=abi)
 
 

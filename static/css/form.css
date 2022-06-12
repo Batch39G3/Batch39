@@ -1,0 +1,34 @@
+body {
+    margin: 0 auto;
+    padding: 0px;
+    text-align: center;
+    width: 100%;
+    font-family: "Myriad Pro", "Helvetica Neue", Helvetica, Arial, Sans-Serif;
+    background-color: #F9E79F;
+}
+
+.sbtn{
+    width: 110px;
+    height: 35px;
+    background-color: #D4AC0D;
+    border: none;
+    border-bottom: 3px solid #B7950B;
+    border-radius: 3px;
+    color: white;
+}
+
+.txt,.txt1,.txt2{
+    width: 120px;
+    height: 35px;
+    padding-left: 10px;
+}
+
+#btn{
+    width: 110px;
+    height: 35px;
+    background-color: #D4AC0D;
+    border: none;
+    border-bottom: 3px solid #B7950B;
+    border-radius: 3px;
+    color: white;
+}

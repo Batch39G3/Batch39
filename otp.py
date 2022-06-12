@@ -11,7 +11,7 @@ def otp_generate(ph_no):
     conn = http.client.HTTPConnection("2factor.in")
     payload = "hi gandu"
     headers = { 'content-type': "application/x-www-form-urlencoded" }
-    conn.request("GET", f"/API/V1/91c4a232-dbea-11ec-9c12-0200cd936042/SMS/{str(ph_no)}/{str(otp)}", payload, headers)
+    conn.request("GET", f"/API/V1/f3ffd167-ea16-11ec-9c12-0200cd936042/SMS/{str(ph_no)}/{str(otp)}", payload, headers)
     res = conn.getresponse()
     data = res.read()
     b=data.decode("utf-8")

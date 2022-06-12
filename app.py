@@ -16,8 +16,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def my_form():
-    return render_template('home.html')
-    #return render_template('admin.html')
+    #return render_template('home.html')
+    return render_template('admin.html')
 
 #############################################################################################
 @app.route('/', methods=['GET','POST'])

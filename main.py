@@ -1,4 +1,5 @@
 from eth_account import Account
+from matplotlib.pyplot import get
 from links import *
 
 aadhar={"485820350395":{"aadhar":"485820350395","region":"Karnataka","phoneno":"7619670012"},
@@ -38,7 +39,7 @@ else:
 #res=get_candidate_details(0) 
 #print(res)  
 #####################
-#add=add_candidate("rak","bang","jds")
+#add=add_candidate("sai","andra","Bjp")
 #print(add)
 #res=get_candidate_details(2)
 #rint(res)
@@ -61,3 +62,20 @@ else:
 #i=1
 #address=web3.eth.accounts[i]
 #print(address)
+
+
+def get_region_votes(lst):
+    region_v={} 
+    for i in range(len(lst)):
+      if lst[i][2] in region_v:
+            region_v[lst[i][2]]+=1
+      else:  
+            region_v[lst[i][2]]=1 
+    
+    return region_v 
+       
+       
+
+#a=get_region_votes(res) 
+#print(a)     
+    

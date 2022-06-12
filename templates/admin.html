@@ -1,42 +1,24 @@
-<html>
-
-<head>
-    <link href="/static/css/admin.css" type="text/css" rel="stylesheet" />
-    <script type="text/javascript" src="/static/js/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript">
-        function add_row() {
-            $rowno = $("#employee_table tr").length;
-            $rowno = $rowno + 1;
-            $("#employee_table tr:last").after("<tr id='row" + $rowno + "'><td><input type='text' name='name[]' placeholder='Enter Name'></td><td><input type='text' name='party[]' placeholder='Enter Party'></td><td><input type='text' name='region[]'' placeholder='Enter region'></td><td><input type='button' value='DELETE' onclick=delete_row('row" + $rowno + "')></td></tr>");
-            
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Admin</title>
+        <link href="form.css" type="text/css" rel="stylesheet" />
         
-        }
-
-        function delete_row(rowno) {
-            $('#' + rowno).remove();
-        }
-        
-    </script>
-</head>
-
-<body>
-    <div id="wrapper">
-
-        <div id="form_div">
-            <form action="{{ url_for("admine")}}" method="POST">
-                <table id="employee_table" align=center>
-                    <tr id="row1">
-                        <td><input type="text" name="name[]" placeholder="Enter Name"></td>
-                        <td><input type="text" name="party[]" placeholder="Enter Party"></td>
-                        <td><input type="text" name="region[]" placeholder="Enter region"></td>
-                    </tr>
-                </table>
-                <input type="button" onclick="add_row();" value="ADD ROW">
-                <input type="submit" name="submit_row" value="SUBMIT">
-            </form>
+    </head>
+    <body>
+        <form >
+        <div id = "box" ><br><br>
+        <input type = "text" class="txt" placeholder="Enter party name" required>
+        <input type = "text" class="txt1" placeholder="Enter region" required>
+        <input type = "text" class="txt2" placeholder="Enter name" required>
+        <button id ="btn">ENTER DETAILS</button>
+        </div><br><br>
+        <div>
+            <button class = "sbtn" onclick = "data1(); data2(); data3()" >SUBMIT</button>
         </div>
 
-    </div>
-</body>
-
+            
+    </form>
+        <script type = "text/javascript" src="form.js "></script>
+    </body>
 </html>
