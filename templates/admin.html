@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+<script type = "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <html lang="en">
     <head>
         <title>Admin</title>
-        <link href="form.css" type="text/css" rel="stylesheet" />
+        <link href="/static/css/admin.css" type="text/css" rel="stylesheet" />
         
     </head>
     <body>
-        <form >
+        <form onSubmit = "data1(); data2(); data3(); check()", action="/admin", method="POST">
         <div id = "box" ><br><br>
         <input type = "text" class="txt" placeholder="Enter party name" required>
         <input type = "text" class="txt1" placeholder="Enter region" required>
@@ -14,11 +15,12 @@
         <button id ="btn">ENTER DETAILS</button>
         </div><br><br>
         <div>
-            <button class = "sbtn" onclick = "data1(); data2(); data3()" >SUBMIT</button>
+            <button class = "sbtn" >SUBMIT</button>
+            <Strong>{{Error}}</Strong>
         </div>
 
             
     </form>
-        <script type = "text/javascript" src="form.js "></script>
+        <script type = "text/javascript" src="/static/js/form.js"></script>
     </body>
 </html>

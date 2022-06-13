@@ -26,6 +26,11 @@ def my_form_post():
        adhar_no = request.form['aadhar_num']
        return redirect(url_for('verification',adhar_no=adhar_no))
     
+@app.route('/temp', methods=['GET','POST'])
+def cehck():     
+    if request.method == "POST":
+        print(request.json)
+        return "alpha"
        
 
    
@@ -99,15 +104,14 @@ def votss():
                
 
 @app.route('/admin',methods = ['POST','GET'])
-def admine():
-    candi_name=[]
-    candi_name= request.form['name[]']  
-    return candi_name
-
-
-
-
-
+def admin():
+    if request.method == "GET":
+        return render_template("admin.html")
+    elif request.method == "POST":
+        print(request.get_data()) # Add if condifition for empty string
+        # if request.get_data == "":
+        return render_template('admin.html', error="Added Candidates")
+    return "not post request"
 
 if __name__ == '__main__':
     app.run(debug=True)
