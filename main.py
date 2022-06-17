@@ -64,18 +64,29 @@ else:
 #print(address)
 
 
-def get_region_votes(lst):
-    region_v={} 
-    for i in range(len(lst)):
-      if lst[i][2] in region_v:
-            region_v[lst[i][2]]+=1
-      else:  
-            region_v[lst[i][2]]=1 
-    
-    return region_v 
-       
-       
+def get_votes(thre):
+  votes=[]
+  party=[]
+  region=[]
+  f_votes=[]
+  res=get_candidates()
+  for i in res :
+      votes.append(i[1])
+      party.append(i[3])
+      region.append(i[2])
 
+  if thre >0:
+      for i in votes:
+        if i%thre==0:
+          f_votes.append(i)
+        else:
+           f_votes.append(0)
+      return f_votes,party,region
+  else:
+      return votes,party,region
+#a=get_votes(1)
+#print(a)
+  
 #a=get_region_votes(res) 
 #print(a)     
     

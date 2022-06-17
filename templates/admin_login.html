@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOTE</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+
+</head>
+
+
+<body>
+    
+    <div class="container">
+        <h1>ADMIN</h1>
+        
+        <form  action="{{ url_for("admin_login")}}" method="POST">
+            
+            <div class="form-control">
+                   
+                <input type="text"  name="admin_id" placeholder="Enter Admin Id"    required >
+                <input type="password" name="admin_pass" placeholder="Enter Admin password "required>
+                
+            </div>
+            
+            <button class="btn">LOGIN</button>
+            <strong>{{error}}</strong>
+            
+        </form>
+    </div>
+
+    <script src="/static/js/sjs.js"></script>
+</body>
+
+
+
+</html>

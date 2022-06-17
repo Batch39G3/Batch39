@@ -45,16 +45,53 @@ body {
     border-radius: 5px;
 }
 
-.btn:focus {
+.btn1{
+    display: inline-block;
+    width: 10%;
+    cursor: pointer;
+    background-color: rgb(8, 11, 216);
+    padding: 15px;
+    font-family: inherit;
+    font-size: 16px;
+    border: 0;
+    border-radius: 5px;
+    position: fixed; 
+    top: 60px; 
+    float:right; 
+    right: 18.5%; 
+    left: 77.25%;  
+    padding: .5px; 
+    color: white;
+}
+
+
+
+
+.btn,.btn1:focus {
     outline: 0;
 }
 
-.btn:active {
+.btn,.btn1:active {
     transform: scale(0.98);
 }
 
+::placeholder { 
+    color: white;
+    opacity: 1;   }
+
+    :-ms-input-placeholder { 
+        color:white;
+      }
+      
+      ::-ms-input-placeholder { 
+        color:white;
+      }
+
+
+
 .text {
     margin-top: 30px;
+    color: white;
 }
 
 .form-control {
@@ -97,4 +134,45 @@ body {
 .form-control input:valid+label span {
     color: rgb(219, 205, 219);
     transform: translateY(-30px);
+}
+
+
+
+
+
+@import url("https://fonts.googleapis.com/css?family=Gelasio&display=swap");
+
+* { box-sizing: border-box; }
+
+body,
+html { overflow-x: hidden; }
+
+.bar {
+  position: absolute;
+  top: 05px;
+  left: 0;
+  height: 2%;
+  width: 100%;
+  padding: 25px 0;
+
+  background-color: #f05b2e;
+  color: white;
+
+  font-family: Gelasio;
+  font-size: 18px;
+}
+
+.bar_content {
+  display: block; /* Important to give the content a width */
+
+  width: 100%;
+  transform: translateX(100%); /* Animation start out of the screen */
+
+  /* Add the animation */
+  animation: move 30s linear infinite /* infinite make reapeat the animation indefinitely */;
+}
+
+/* Create the animation */
+@keyframes move {
+  to { transform: translateX(-100%); }
 }

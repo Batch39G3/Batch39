@@ -1,13 +1,15 @@
 import json
+from matplotlib.font_manager import json_dump
 from pyrfc3339 import generate
 from web3 import Web3   
 from abis import abis
 import random
+import re
 ganache_url = "http://127.0.0.1:7545"
 web3 = Web3(Web3.HTTPProvider(ganache_url))
 abise = abis()
 abi=json.loads(abise)
-address=web3.toChecksumAddress("0xae1576A8a800bd699D69080F9ba2C1126f073364")
+address=web3.toChecksumAddress("0x292d1648205110C260EEAF33ffB873B4D7d53e1B")
 contract=web3.eth.contract(address=address,abi=abi)
 
 
@@ -53,8 +55,14 @@ def authorisess(b):
     #print(h)
     return h
 
-
-
+#party,region,name
+def candi_add(a_data):
+    party=a_data["value1"].split(",")
+    region=a_data["value2"].split(",")
+    name=a_data["value3"].split(",")
+    for i in range(len(party)):
+        add_candidate(name[i],region[i],party[i])
+    return 
 
 
 
@@ -63,7 +71,7 @@ def add_candidate(name,region,party):
     h=contract.functions.addCandidate(str(name),str(region),str(party)).transact()
     h=web3.eth.waitForTransactionReceipt(h)
     #print(h)
-    return "sucess"
+  
 
 
 
@@ -82,7 +90,7 @@ def vote(name,region,party,i):
 def get_candidates():
     l=[]
     s=contract.functions.get_no_candidates().call()
-    print(s)
+    #print(s)
     for i in range (int(s)):
       a=contract.functions.candidates(i).call()
       l.append(a)
@@ -131,6 +139,49 @@ def generatee():
       else:
             return(" no more address ")
 
+###############################################################get no of votes for displaying#############################################################################
+def get_votes(thre,res):
+  votes=[]
+  party=[]
+  region=[]
+  f_votes=[]
+  for i in res :
+      votes.append(i[1])
+      party.append(i[3])
+      region.append(i[2])
 
-#a=generatee()
-#print(a)
+  if thre >0:
+      for i in votes:
+        if i%thre==0:
+          f_votes.append(i)
+        else:
+           f_votes.append(0)
+      return f_votes,party,region
+  else:
+      return votes,party,region
+def dic_dict(a):
+  res = re.sub(r"[\([{})\]]", "", a)
+  return res
+
+
+def region_votes(thre):
+    d={}
+    res=get_candidates()
+    v,p,r=get_votes(thre,res)
+    for i in range(len(v)):
+        if r[i] not in d:
+            d[r[i]]=[{p[i]:v[i],}]
+        else:
+            d[r[i]].append({p[i]:v[i]})
+    b=json.dumps(d)
+    c=dic_dict(b)
+    rew=c.replace(":","=")
+    return rew
+
+
+d=region_votes(10)
+#b=json.dumps(d)
+#c=dic_dict(b)
+#print(d)
+#print(b[1:len(b)-1])
+#print(type(b))
