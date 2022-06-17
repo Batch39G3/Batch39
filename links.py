@@ -9,7 +9,7 @@ ganache_url = "http://127.0.0.1:7545"
 web3 = Web3(Web3.HTTPProvider(ganache_url))
 abise = abis()
 abi=json.loads(abise)
-address=web3.toChecksumAddress("0x292d1648205110C260EEAF33ffB873B4D7d53e1B")
+address=web3.toChecksumAddress("0x969b7CB02e0cF2f7A1B81dA7c026Ef73d990b551")
 contract=web3.eth.contract(address=address,abi=abi)
 
 
@@ -179,7 +179,7 @@ def region_votes(thre):
     return rew
 
 
-d=region_votes(10)
+#d=region_votes(10)
 #b=json.dumps(d)
 #c=dic_dict(b)
 #print(d)

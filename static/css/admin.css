@@ -23,7 +23,7 @@ body {
     padding-left: 10px;
 }
 
-#btn{
+#btn,#home_btn2{
     width: 110px;
     height: 35px;
     background-color: #D4AC0D;
@@ -32,3 +32,6 @@ body {
     border-radius: 3px;
     color: white;
 }
+
+
+

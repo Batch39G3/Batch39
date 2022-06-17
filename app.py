@@ -110,12 +110,17 @@ def admin_login():
     if request.method == "GET":
         return render_template("admin_login.html")
     elif request.method == "POST":
-        admin_id = request.form['admin_id']
-        admin_password= request.form['admin_pass']
+        try:
+            admin_id = request.form['admin_id']
+            admin_password= request.form['admin_pass']
         
-        if admin_id == "admin" and admin_password == "admin":
-            return redirect(url_for('admin'))
-
+            if admin_id == "admin" and admin_password == "admin":
+                 return redirect(url_for('admin'))
+            else:   
+               return render_template("admin_login.html",error="Wrong Credentials")
+        except:
+            a=region_votes(0)
+            return render_template("home.html",a=a)
 
                
 
@@ -124,18 +129,22 @@ def admin():
     if request.method == "GET":
         a=region_votes(0)
         return render_template("admin.html",a=a)
-    elif request.method == "POST":           
-        data=request.get_data()
-        if len(str(data)) !=3:
+    elif request.method == "POST":
+        try:           
+            data=request.get_data()
+            if len(str(data)) !=3:
                print(str(data))
                a_data=json.loads(data)
                a=candi_add(a_data)
                #print(a)
-        #data=json.loads(str(data))
-        #print(data)
-        a=region_votes(0)
-        #print(a)
-        return render_template('admin.html', Error="Added Candidates",a=a)
+            #data=json.loads(str(data))
+            #print(data)
+            a=region_votes(0)
+            #print(a)
+            return render_template('admin.html', Error="Added Candidates")
+        except:
+            a=region_votes(0)
+            return render_template("home.html",a=a)
     return "not post request"
 
 if __name__ == '__main__':

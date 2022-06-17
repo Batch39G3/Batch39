@@ -45,9 +45,10 @@ body {
     border-radius: 5px;
 }
 
-.btn1{
+.btn1,#home_btn1{
     display: inline-block;
-    width: 10%;
+    width: 5%;
+    height: 60px;
     cursor: pointer;
     background-color: rgb(8, 11, 216);
     padding: 15px;
