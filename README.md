@@ -1,5 +1,2 @@
 # Batch39
-git init
-git add -A
-git commit -m “your message”
-git push
+This Project is done by SAI RAM PURIMETLA AND RAKSHITH KUMAR
